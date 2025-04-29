@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import Card from '../components/Card'
 import {useProducts} from '../context/ProductContext'
 import styles from './ProductsPage.module.css'
@@ -14,6 +15,8 @@ const ProductsPage = () => {
     const [search , setSearch] = useState("")
     const [displayed , setDisplayed] = useState([])
     const [query, setQuery] = useState({})
+
+    const [searchParams ,setSearchParams] = useSearchParams()
     console.log(products)
    
     useEffect(()=>{
@@ -22,6 +25,7 @@ const ProductsPage = () => {
 
 
      useEffect(()=>{
+      useSearchParams(query)
       let finalProducts = searchProducts(products , query.search)
       finalProducts= filterProducts(filterProducts , query.category)
       setDisplayed(finalProducts)
@@ -30,7 +34,7 @@ const ProductsPage = () => {
 
 
   const searchHandler =()=>{
-    setQuery(query=> ({...query, search:search}))
+    setQuery(query=> createQueryObject(query , {search:search}))
       console.log(search)
     }
 
@@ -40,7 +44,7 @@ const ProductsPage = () => {
   const category = event.target.innerText.toLowerCase()
   console.log(category)
   if(tagName!== LI) return;
-  setQuery((query)=> ({...query, category}))
+  setQuery((query)=> createQueryObject(query , {category}))
 }
  
 

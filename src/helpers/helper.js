@@ -9,10 +9,27 @@ const searchProducts =(products, search)=>{
 }
 
 
+
 const filterProducts=(products, category)=>{
     if(!category) return products
     const filteredProducts = products.filter(p=> p.category=== category)
     console.log(filteredProducts)
     return filteredProducts
 }
-export {shortenText , searchProducts , filterProducts}
+
+
+
+const createQueryObject = (currentQuery , newQuery)=>{
+    if(currentQuery.category==="all"){
+       const {category , ...rest}= currentQuery
+       return rest
+    }
+    if(currentQuery.search===""){
+        const {search , ...rest} = currentQuery
+        return rest
+    }
+    return {...currentQuery , ...newQuery}
+}
+
+
+export {shortenText , searchProducts , filterProducts , createQueryObject}
