@@ -7,7 +7,7 @@ import styles from './Card.module.css'
 
 
 const Card = ({data}) => {
-    const {id, title , image , price} = data
+const {id, title , image , price} = data
 console.log(data)
 
   return (

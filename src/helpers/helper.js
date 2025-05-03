@@ -1,3 +1,4 @@
+
 const shortenText = text=>{
     return text.split(" ").slice(0 , 3).join(" ")
 }
@@ -9,7 +10,6 @@ const searchProducts =(products, search)=>{
 }
 
 
-
 const filterProducts=(products, category)=>{
     if(!category) return products
     const filteredProducts = products.filter(p=> p.category=== category)
@@ -17,8 +17,7 @@ const filterProducts=(products, category)=>{
     return filteredProducts
 }
 
-
-
+// ترکیب سرچ و کتگوری
 const createQueryObject = (currentQuery , newQuery)=>{
     if(currentQuery.category==="all"){
        const {category , ...rest}= currentQuery
@@ -32,4 +31,13 @@ const createQueryObject = (currentQuery , newQuery)=>{
 }
 
 
-export {shortenText , searchProducts , filterProducts , createQueryObject}
+const getInitialQuery = (useSearchParams)=>{
+    const query={}
+    const category=useSearchParams.get("category")
+    const search=useSearchParams.get("search")
+    if(category) query.category=category
+    if(search) query.search=search
+    return query
+}
+
+export {shortenText , searchProducts , filterProducts , createQueryObject , getInitialQuery}
