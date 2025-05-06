@@ -40,4 +40,12 @@ const getInitialQuery = (useSearchParams)=>{
     return query
 }
 
-export {shortenText , searchProducts , filterProducts , createQueryObject , getInitialQuery}
+
+const sumProducts =(products)=>{
+const itemsCounter = items.reduce ((acc , cur) => acc+cur.quantity , 0)
+const total = products.reduce((acc, cur)=> acc+cur.price * cur.quantity , 0).toFixed(2)
+return {itemsCounter:itemsCounter , total : total}  
+}
+
+
+export {shortenText , searchProducts , filterProducts , createQueryObject , getInitialQuery , sumProducts }
