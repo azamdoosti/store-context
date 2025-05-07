@@ -13,6 +13,7 @@ function App() {
 
   return (
     <CartProvider>
+      <Layout>
     <ProductProvider>
      <Routes>
       <Route index element={<Navigate to='/products' replace/>}/>
@@ -22,6 +23,7 @@ function App() {
       <Route path='/*' element={<PageNotFound/>}/>
      </Routes>
     </ProductProvider>
+    </Layout>
     </CartProvider>
   )
 }
