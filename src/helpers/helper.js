@@ -42,10 +42,19 @@ const getInitialQuery = (useSearchParams)=>{
 
 
 const sumProducts =(products)=>{
-const itemsCounter = items.reduce ((acc , cur) => acc+cur.quantity , 0)
+const itemsCounter = products.reduce((acc , cur) => acc+cur.quantity , 0)
 const total = products.reduce((acc, cur)=> acc+cur.price * cur.quantity , 0).toFixed(2)
 return {itemsCounter:itemsCounter , total : total}  
 }
 
+const productQuantity =(state , id) =>{
+const index= state.selectedItems.findIndex((item) => item.id ===id )
+if(index=== -1){
+    return 0
+} else {
+    state.selectedItems[index].quantity
+}
+}
 
-export {shortenText , searchProducts , filterProducts , createQueryObject , getInitialQuery , sumProducts }
+
+export {shortenText , searchProducts , filterProducts , createQueryObject , getInitialQuery , sumProducts , productQuantity }

@@ -10,7 +10,7 @@ const ProductProvider = ({children }) => {
 
             try {
                 const response = await api.get("/products")
-                setProducts(response )    
+                setProducts(response)    
             } catch (error) {
                 console.log(error)
             }
