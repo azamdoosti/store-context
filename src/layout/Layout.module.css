@@ -12,6 +12,7 @@
 .header a{
     font-size: 1.5rem;
     font-weight: 600;
+    color: #fff;
 }
 
 .header div{
@@ -31,7 +32,7 @@
     height: 20px;
     line-height: 20px;
     background-color: #000;
-    color: #fff;
+    color: #2ac91b;
     border-radius: 50%;
     position: absolute;
     top: -10px;

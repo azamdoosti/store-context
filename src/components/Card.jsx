@@ -12,9 +12,9 @@ const Card = ({data}) => {
 const {id, title , image , price} = data
 
 const [state,dispatch] = useCart()
-// console.log(state)
-
- const quantity = productQuantity(state,id)
+console.log(state)
+ 
+const quantity = productQuantity(state,id)
 console.log(quantity)
 
 const clickHandler =(type)=>{
@@ -44,10 +44,10 @@ const clickHandler =(type)=>{
           {!!quantity && <span>{quantity}</span>}
         {
            quantity === 0 ?
-            (    <button onClick={()=> clickHandler("ADD_ITEM")}>
+            ( <button onClick={()=> clickHandler("ADD_ITEM")}>
                     <TbShoppingBagCheck/>
                  </button>) :
-        <button onClick={()=> clickHandler("INCREASE")}>+</button>
+        <button onClick={()=> clickHandler("INCREASE")}> + </button>
         }
 
       </div>

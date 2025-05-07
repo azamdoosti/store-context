@@ -32,7 +32,7 @@ const ProductsPage = () => {
       finalProducts= filterProducts(finalProducts , query.category)
       setDisplayed(finalProducts)
       console.log(finalProducts)
-     },[query , products])
+     },[query])
 
 
   return (

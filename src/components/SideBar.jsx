@@ -26,7 +26,7 @@ const SideBar = ({query , setQuery}) => {
         {categories.map((item)=>(
             <li 
             key={item.id}
-            className={item.type.toLowerCase()=== query.category ?styles.selectee : null }
+            className={item.type.toLowerCase() === query.category ? styles.selected : null }
             >{item.type}</li>
         ))}
        </ul>

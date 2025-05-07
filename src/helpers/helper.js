@@ -12,7 +12,7 @@ const searchProducts =(products, search)=>{
 
 const filterProducts=(products, category)=>{
     if(!category) return products
-    const filteredProducts = products.filter(p=> p.category=== category)
+    const filteredProducts = products.filter(p=> p.category === category)
     console.log(filteredProducts)
     return filteredProducts
 }
@@ -49,10 +49,10 @@ return {itemsCounter:itemsCounter , total : total}
 
 const productQuantity =(state , id) =>{
 const index= state.selectedItems.findIndex((item) => item.id ===id )
-if(index=== -1){
+if(index === -1){
     return 0
 } else {
-    state.selectedItems[index].quantity
+    return state.selectedItems[index].quantity
 }
 }
 

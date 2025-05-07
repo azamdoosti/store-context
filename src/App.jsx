@@ -1,6 +1,6 @@
-import { useState } from 'react'
+
 import {Routes , Route , Navigate} from 'react-router-dom'
-import './App.css'
+import Layout from './layout/Layout'
 import ProductsPage from './pages/ProductsPage'
 import DetailsPage from './pages/DetailsPage'
 import CheckoutPage from './pages/CheckoutPage'
@@ -10,7 +10,6 @@ import CartProvider from './context/CartContext'
 
 
 function App() {
-
   return (
     <CartProvider>
       <Layout>
